@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-1.0">
+    <title>Gestion d'Images</title>
+    <style>
+    .image {
+        display: none;
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+    .active {
+        display: block;
+    }
+    @media screen and (max-width: 600px) 
+    {
+        .image {
+            width: 100%;
+               }
+    }
+    body{
+        border-radius: 5px;
+        background-color: #f58214;
+    }
+    button { border-radius: 5px; }
+</style>    
+</head>
+<body>
+    <button onclick="filter('cat1')">Animation</button>
+    <button onclick="filter('cat2')">Célebrités</button>
+
+    <img class="image cat1 active" src="Image_1.jpg" alt="Zenitsu">
+    <img class="image cat2" src="Image_2.jpg" alt="Billie Eilish">
+    <img class="image cat1" src="Image_3.jpg" alt="Mifune In Fire">
+    <img class="image cat2" src="Image_4.jpg" alt="Selena Gomez">
+
+    <script>
+        function filter(category) 
+        {
+            var images = document.getElementsByClassName('image');
+            for (var i = 0; i < images.length; i++)
+            {
+                images[i].classList.remove('active');
+                if (images[i].classList.contains(category))
+                {
+                    images[i].classList.add('active');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
